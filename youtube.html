@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YOUTUBE</title>
+    <link rel="icon" href="C:\Users\bnsri\OneDrive\Desktop\STRANGER THINGS\fight-clubwall.jpg">
+</head>
+
+<body class="body">
+    <style>
+        .body {
+            padding-top: 60px;
+            padding-left: 80px;
+        }
+
+        .ic {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            column-gap: 12px;
+            margin-top: 10px;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            padding: 20px;
+        }
+
+        .video-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-info div:first-child {
+            font-weight: bold;
+            line-height: 1.4;
+            height: 42px;
+            overflow: hidden;
+        }
+
+        .header {
+            height: 55px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 50px;
+            background-color: white;
+            z-index: 100;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .mid {
+            display: flex;
+            margin-left: 70px;
+            margin-right: 25px;
+            flex: 1;
+            max-width: 500px;
+            align-items: center;
+        }
+
+        .right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .ham,
+        .search-icon img,
+        .voi,
+        .upl,
+        .apps,
+        .not {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .youlog {
+            width: 110px;
+            height: auto;
+        }
+
+        .prof {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .voi {
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+            background-color: rgb(252, 243, 243);
+        }
+
+        .sear {
+            display: flex;
+            flex: 1;
+            height: 37px;
+            width: 0;
+            background-color: rgb(252, 243, 243);
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-width: 1px;
+            border-color: rgb(192, 192, 192);
+            box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .side {
+            position: fixed;
+            top: 55px;
+            bottom: 0;
+            left: 0;
+            width: 72px;
+            height: 76px;
+        }
+
+        .thumb {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .time {
+            position: absolute;
+            bottom: 12px;
+            right: 8px;
+            background-color: black;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .side-ele {
+            height: 76px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .side-ele:hover {
+            background-color: gray;
+            cursor: pointer;
+        }
+
+        .side-ele img {
+            height: 25px;
+        }
+
+        .side-ele div {
+            font-size: x-small;
+        }
+
+        .search-icon,
+        .voi-sear {
+            display: flexbox;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .search-icon {
+            background-color: rgb(252, 243, 243);
+            height: 40px;
+            width: 60px;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            border-width: 1px;
+            border-color: rgb(192, 192, 192);
+            box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-icon .tooltip,
+        .voi-sear .tooltip {
+            background-color: gray;
+            position: absolute;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-left: 4px;
+            padding-right: 4px;
+            color: white;
+            opacity: 0;
+            transition: 0.15s;
+            white-space: nowrap;
+        }
+
+        .search-icon:hover .tooltip,
+        .voi-sear:hover .tooltip {
+            opacity: 1;
+        }
+    </style>
+    <div class="header">
+        <div class="left">
+            <img class="ham" src="thumb/hamburger-menu.svg" width="25px" height="25px">
+            <img class="youlog" src="thumb/youtube-logo.svg" width="100px" height="100px">
+        </div>
+        <div class="mid">
+            <input class="sear" type="text" placeholder="Search">
+            <button class="search-icon"><img class="seic" src="thumb/search.svg" width="25px" height="25px">
+                <div class="tooltip">Search</div>
+            </button>
+            <div class="voi-sear"><img class="voi" src="thumb/voice-search-icon.svg" width="20px" height="20px">
+                <div class="tooltip">Voice Search</div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="voi-sear">
+                <img class="upl" src="thumb/upload.svg" width="25px" height="25px">
+                <div class="tooltip">Create</div>
+            </div>
+            <div class="voi-sear">
+                <img class="apps" src="thumb/youtube-apps.svg" width="25px" height="25px">
+                <div class="tooltip">YouTube Apps</div>
+            </div>
+            <div class="voi-sear">
+                <img class="not" src="thumb/notifications.svg" width="25px" height="25px">
+                <div class="tooltip">Notifications</div>
+            </div>
+            <img class="prof" style="
+                    border-radius: 25px;" src="thumb/batman.jpg" width="25px" height="25px">
+        </div>
+    </div>
+    <div class="side">
+        <div class="side-ele">
+            <img src="thumb/home.svg">
+            <div>Home</div>
+        </div>
+        <div class="side-ele">
+            <img src="thumb/explore.svg">
+            <div>Explore</div>
+        </div>
+        <div class="side-ele">
+            <img src="thumb/subscriptions.svg">
+            <div>Subscriptions</div>
+        </div>
+        <div class="side-ele">
+            <img src="thumb/originals.svg">
+            <div>Originals</div>
+        </div>
+        <div class="side-ele">
+            <img src="thumb/youtube-music.svg">
+            <div>Youtube Music</div>
+        </div>
+        <div class="side-ele">
+            <img src="thumb/library.svg">
+            <div>Library</div>
+        </div>
+    </div>
+    <div class="videos-grid">
+        <div>
+            <div class="thumb">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <img src="thumb/mb.jpg">
+                </a>
+                <div class="time">14.20</div>
+            </div>
+            <div class="video-grid">
+                <div>
+                    <img class="ic" src="thumb/tyler.jpg" width="40px">
+                </div>
+                <div>
+                    <div style="font-family: Arial, Helvetica, sans-serif;
+                            font-style: strong;
+                            margin-bottom: 12px;">Marques Brownlee is a Tech Influencer</div>
+                    <div style="color:gray;
+                            margin-bottom: 4px;
+                            font-size: 15px;">Tyler</div>
+                    <div style="color:gray;
+                            font-size: 15px;">4.3M views</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="thumb">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <img src="thumb/boss.jpg">
+                </a>
+                <div class="time">10.20</div>
+            </div>
+            <div class="video-grid">
+                <div class="channel-pic">
+                    <img class="ic" src="thumb/mwitb.jpg" width="40px">
+                </div>
+                <div class="video-info">
+                    <div style="font-family: Arial, Helvetica, sans-serif;
+                            font-style: strong;
+                            margin-bottom: 12px;">Mr who is the Boss?</div>
+                    <div style="color:gray;
+                            margin-bottom: 4px;
+                            font-size: 15px;">MWITB</div>
+                    <div style="color:gray;
+                            font-size: 15px;">3.14M views</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="thumb">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <img src="thumb/samsung.jpg">
+                </a>
+                <div class="time">9.20</div>
+            </div>
+            <div class="video-grid">
+                <div class="channel-pic">
+                    <img class="ic" src="thumb/sam.jpg" width="40px">
+                </div>
+                <div class="video-info">
+                    <div style="font-family: Arial, Helvetica, sans-serif;
+                            font-style: strong;
+                            margin-bottom: 12px;">Samsung S series is the GOAT</div>
+                    <div style="color:gray;
+                            margin-bottom: 4px;
+                            font-size: 15px;">Samsung</div>
+                    <div style="color:gray;
+                            font-size: 15px;">10M views</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="thumb">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <img src="thumb/iphone flex.jpg">
+                </a>
+                <div class="time">22.10</div>
+            </div>
+            <div class="video-grid">
+                <div class="channel-pic">
+                    <img class="ic" src="thumb/apple.jpg" width="40px">
+                </div>
+                <div class="video-info">
+                    <div style="font-family: Arial, Helvetica, sans-serif;
+                            font-style: strong;
+                            margin-bottom: 12px;">Is Iphone used only to flex?</div>
+                    <div style="color:gray;
+                            margin-bottom: 4px;
+                            font-size: 15px;">Apple</div>
+                    <div style="color:gray;
+                            font-size: 15px;">5M views</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="thumb">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <img src="thumb/1d history.jpg">
+                </a>
+                <div class="time">11.30</div>
+            </div>
+            <div class="video-grid">
+                <div class="channel-pic">
+                    <img class="ic" src="thumb/1d.jpg" width="40px">
+                </div>
+                <div class="video-info">
+                    <div style="font-family: Arial, Helvetica, sans-serif;
+                            font-style: strong;
+                            margin-bottom: 12px;">History song makes history</div>
+                    <div style="color:gray;
+                            margin-bottom: 4px;
+                            font-size: 15px;">1D</div>
+                    <div style="color:gray;
+                            font-size: 15px;">8M views</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="thumb">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <img src="thumb/sadie sink.jpg">
+                </a>
+                <div class="time">11.11</div>
+            </div>
+            <div class="video-grid">
+                <div class="channel-pic">
+                    <img class="ic" src="thumb/sadie.jpg" width="40px">
+                </div>
+                <div class="video-info">
+                    <div style="font-family: Arial, Helvetica, sans-serif;
+                            font-style: strong;
+                            margin-bottom: 12px;">Does Sadie has a secret</div>
+                    <div style="color:gray;
+                            margin-bottom: 4px;
+                            font-size: 15px;">Sadie</div>
+                    <div style="color:gray;
+                            font-size: 15px;">8M views</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
